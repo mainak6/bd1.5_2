@@ -7,10 +7,10 @@ const port = 3010;
 app.use(express.static('static'));
 
 app.get('/cart-total', (req, res) => {
-  //let newItemPrice = parseFloat(req.query.newItemPrice);
-  let cartTotal = parseFloat(req.query.cartTotal);
-  let totalPrice = totalPrice + cartTotal;
-  res.send(totalPrice.toString());
+  let newItemPrice = parseFloat(req.query.newItemPrice);
+  let currentCartTotal = parseFloat(req.query.currentCartTotal);
+  let updatedCartTotal = currentCartTotal + newItemPrice;
+  res.send(updatedCartTotal.toString());
 });
 
 app.get('/membership-discount', (req, res) => {
